@@ -15,4 +15,8 @@ class Kurs extends Model
         // Kurs moze da ima vise predavaca
         return $this->hasMany(Predavac::class);
     }
+    public function sala()
+    {
+        return $this->belongsTo(Sala::class);
+    }
 }
