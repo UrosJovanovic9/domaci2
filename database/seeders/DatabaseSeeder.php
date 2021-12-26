@@ -4,6 +4,7 @@ namespace Database\Seeders;
 use  App\Models\User;
 use  App\Models\Kurs;
 use  App\Models\Predavac;
+use  App\Models\Sala;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -20,23 +21,48 @@ class DatabaseSeeder extends Seeder
         User::truncate();
         Kurs::truncate();
         Predavac::truncate();
+        Sala::truncate();
 
 
-       $user = User::factory()->create();
+       $user = User::factory()->create(); 
 
        // Pravimo nase seedere
+
+       $sala1 = Sala::create([
+        'naziv'=> 'Sala1',
+        'sprat'=> 'I'
+        ]);
+
+        $sala2 = Sala::create([
+        'naziv'=> 'Sala2',
+        'sprat'=> 'II'
+        ]);
+
+        $sala3 = Sala::create([
+        'naziv'=> 'Sala3',
+        'sprat'=> 'I'
+        ]);
+        
+
        $kurs1 = Kurs::create([
         'naziv'=>'C++',
-        'vremeTrajanja' => '20']);
+        'vremeTrajanja' => '20',
+        'sala_id'=>$sala1->id
+    ]);
 
        $kurs2 = Kurs::create([
         'naziv'=>'C#',
-        'vremeTrajanja' => '10']);
+        'vremeTrajanja' => '10',
+        'sala_id'=>$sala2->id
+    ]);
 
        $kurs3 = Kurs::create([
         'naziv'=>'Python',
-        'vremeTrajanja' => '15']);
+        'vremeTrajanja' => '15',
+        'sala_id'=>$sala3->id
+    ]);
 
+        
 
        $predavac1 = Predavac::create([
            'imeIPrezime' => 'Petar Petrovic',
