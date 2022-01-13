@@ -32,8 +32,6 @@ class AuthController extends Controller
         $token = $user->createToken('auth_token')->plainTextToken;
         return response()->json(['Uspesno ste se registrovali','data'=>$user,'access_token'=>$token,'token_type'=>'Bearer']);
 
-
-
     }
 
 
@@ -47,7 +45,7 @@ class AuthController extends Controller
         //plainTextToken nam vraca tekst samog tokena (string tokena)
         $token = $user->createToken('auth_token')->plainTextToken;
 
-        return response()->json(['message'=>'Zdravo '.$user->name.', dobro dosli', 'access_token'=>$token, 'token_type'=>'Bearer']);
+        return response()->json(['poruka'=>'Zdravo '.$user->name.', dobro dosli', 'access_token'=>$token, 'token_type'=>'Bearer']);
 
     }
 
